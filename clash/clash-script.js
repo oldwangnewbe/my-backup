@@ -371,16 +371,16 @@ function main(config) {
         udp: true,
     })
     // 国内域名，暂时不开启
-    // rules.push(
-    //     'RULE-SET,China_Classical,DIRECT',
-    // )
-    // ruleProviders.set('China_Classical', {
-    //     ...ruleProviderCommon,
-    //     behavior: 'classical',
-    //     format: 'yaml',
-    //     url: 'https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml',
-    //     path: './ruleset/China_Classical.yaml',
-    // })
+    rules.push(
+        'RULE-SET,China_Classical,DIRECT',
+    )
+    ruleProviders.set('China_Classical', {
+        ...ruleProviderCommon,
+        behavior: 'classical',
+        format: 'yaml',
+        url: 'https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml',
+        path: './ruleset/China_Classical.yaml',
+    })
     if (ruleOptions.Openai) {
         rules.push(
             'RULE-SET,OpenAI,OpenAI',

@@ -219,7 +219,7 @@ const proxyGroupConfig = [
     "proxies": ["Proxy", "HK", "TW", "JP", "KR", "US", "DE", "SG", "FR", "UK", "DIRECT"],
     "include-all": true,
     "exclude-filter": "(?i)GB|Traffic|Expire|Premium|频道|订阅|ISP|流量|到期|重置",
-    "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google.png"
+    "icon": "https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png"
   },
   {
     ...groupBaseOption,
@@ -482,6 +482,7 @@ const rules = [
   'DOMAIN-SUFFIX,volces.com,DIRECT',
   'DOMAIN-SUFFIX,portal101.cn,DIRECT',
   'DOMAIN-SUFFIX,ephone.ai,DIRECT',
+  'DOMAIN-SUFFIX,pcbeta.com,DIRECT',
   "RULE-SET,Telegram,Telegram",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,BiliBili,BiliBili",
