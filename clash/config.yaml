@@ -20,44 +20,51 @@ mode: rule
 ipv6: true
 mixed-port: 7890
 allow-lan: true
-bind-address: '*'
-log-level: warning
+bind-address: 0.0.0.0
+log-level: info
 unified-delay: true
 find-process-mode: strict
+global-client-fingerprint: chrome
 # 规则选择缓存
 profile:
   store-selected: true
   store-fake-ip: true
 tcp-concurrent: true
-keep-alive-interval: 1800
+keep-alive-interval: 15
+keep-alive-idle: 15
+disable-keep-alive: true
+
 
 # dns配置
 dns:
   enable: true
-  ipv6: false
+  ipv6: true
   prefer-h3: false
   use-hosts: false
   use-system-hosts: false
-  respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - +.lan
-    - +.local
-    - +.msftconnecttest.com
-    - +.msftncsi.com
-    - localhost.ptlogin2.qq.com
-    - localhost.sec.qq.com
-    - localhost.work.weixin.qq.com
+    - "*"
+    - "+.lan"
+    - "+.local"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "localhost.ptlogin2.qq.com"
+    - "localhost.sec.qq.com"
+    - "localhost.work.weixin.qq.com"
+    - "market.xiaomi.com"
+    - "*.xiaomi.com"
+    - "*.mi.com"
+    - "*.miui.com"
+    - "*.xiaomi.net"
+    - "*.mi.net"
+    - "*.miui.net"
+    - "*.pcbeta.com"
   default-nameserver:
     - tls://223.5.5.5
     - tls://119.29.29.29
   nameserver:
-    - https://1.1.1.1/dns-query
-    - https://dns.google/dns-query
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
-  direct-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 
@@ -68,16 +75,19 @@ geo-auto-update: true
 geo-update-interval: 24
 geodata-loader: memconservative
 geox-url:
-  geoip: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
-  geosite: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
-  mmdb: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb
-  asn: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
 
 # 时间同步
+
 ntp:
   enable: true
   write-to-system: false
-  server: cn.ntp.org.cn
+  server: time.apple.com
+  port: 123
+  interval: 30
 
 # 入站
 tun:
@@ -91,7 +101,7 @@ tun:
 
 # 嗅探
 sniffer:
-  enable: true
+  enable: false
   force-dns-mapping: true
   parse-pure-ip: true
   override-destination: false
@@ -104,6 +114,7 @@ sniffer:
       ports:
         - 80
         - 8080-8880
+      override-destination: true
     QUIC:
       ports:
         - 443
@@ -111,25 +122,28 @@ sniffer:
   force-domain: []
   skip-domain:
     - +.oray.com
+    - "Mijia Cloud"
+    - "+.push.apple.com"
 
 # 面板设置
 external-controller: 127.0.0.1:9090
 secret: ""
 external-ui: "./ui"
-external-ui-name: metacubexd
-external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
+external-ui-name: zashboard
+external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 代理组锚点
 SelectHK: &SelectHK { type: select, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
 SelectTW: &SelectTW { type: select, proxies: [ 台湾, 手动选择, 香港, 澳门, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
-SelectProxy: &SelectProxy { type: select, proxies: [ 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
 SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ] }
-UrlTest: &UrlTest { type: url-test, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true }
-Fallback: &Fallback { type: fallback, interval: 60, tolerance: 20, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 2000, max-failed-times: 3, hidden: true, include-all: true }
+SelectProxy: &SelectProxy { type: select, proxies: [ 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
+UrlTest: &UrlTest { type: url-test, interval: 300, tolerance: 50, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 700, hidden: true, include-all: true }
+Fallback: &Fallback { type: fallback, interval: 300, tolerance: 50, lazy: true, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 700, hidden: true, include-all: true }
 
 # 代理组
 proxy-groups:
   - { name: 手动选择, <<: *SelectHK, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png }
+  # - { name: GLOBAL, <<: *SelectDirect,include-all: true, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png }
   - { name: Apple, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png }
   - { name: Telegram, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png }
   - { name: YouTube, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png}
@@ -190,20 +204,22 @@ rule-providers:
   Gemini: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml }
   Claude: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml }
   Github: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml }
-  ChinaMax: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml }
+  LanNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml }
+  DNSNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DNS/DNS_No_Resolve.yaml }
+  ChinaMaxNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml }
 
 rules:
   # 额外添加的规则
-  - GEOIP,private,DIRECT
-  # - GEOIP,CN,DIRECT
-  # - DOMAIN-SUFFIX,yunaq.com,DIRECT
-  # - DOMAIN-SUFFIX,jiashule.com,DIRECT
-  # - DOMAIN-SUFFIX,linux.do,DIRECT
-  # - DOMAIN-SUFFIX,deepseek.com,DIRECT
-  # - DOMAIN-SUFFIX,volces.com,DIRECT
+  - DOMAIN-SUFFIX,linux.do,DIRECT
   - DOMAIN-SUFFIX,portal101.cn,DIRECT
+  - DOMAIN-SUFFIX,javasec.org,DIRECT
+  - PROCESS-NAME,prl_naptd,漏网之鱼
+  - PROCESS-NAME,prl_disp_service,漏网之鱼
+  - PROCESS-NAME,com.parallels.naptd,漏网之鱼
   # 分流规则
-  - RULE-SET,ChinaMax,DIRECT
+  - RULE-SET,LanNoResolve,DIRECT,no-resolve
+  - RULE-SET,DNSNoResolve,DIRECT,no-resolve
+  - RULE-SET,ChinaMaxNoResolve,DIRECT,no-resolve
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
   - RULE-SET,BiliBili,BiliBili
