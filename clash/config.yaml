@@ -233,7 +233,7 @@ rules:
   - PROCESS-NAME,prl_disp_service,漏网之鱼
   - PROCESS-NAME,com.parallels.naptd,漏网之鱼
   # 分流规则，这里的分流规则是根据blackmatrix7大佬的配置
-  # [规则匹配],[局域网],[直连],[不解析]  这里不使用GEOIP,private，是因为我测试下来感觉使用GEO会让clash内存变高所以就没使用了
+  # [规则匹配],[局域网],[直连],[不解析]  这里不使用GEOIP,private，是因为我测试下来感觉使用GEO会让clash内存占用过大所以就没使用了
   - RULE-SET,LanNoResolve,直连,no-resolve
   - RULE-SET,DNSNoResolve,直连,no-resolve
   - RULE-SET,ChinaMaxNoResolve,直连,no-resolve
