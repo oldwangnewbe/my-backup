@@ -1,16 +1,18 @@
-# 机场订阅
+# 订阅锚点，排除了一下节点，例如 包含剩余，官网，到期，也可以在这行最后的exclude-filter添加你需要排除的节点
+Providers: &Providers { type: http, interval: 86400, health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 300 }, exclude-filter: "套餐到期|剩余|官网" }
 proxy-providers:
   # 订阅名称可以随便改
+  # 官方文档: https://wiki.metacubex.one/config/proxy-providers/
   p1:
-    type: http
-    interval: 86400
+    <<: *Providers
     url: https://al121.cc/#/register?code=R7vdKxbE
     path: ./proxy_provider/p1.yaml
+    exclude-filter: "套餐到期|剩余"
     override:
       additional-prefix: 'p1 | '  # 订阅节点前缀，方便区分该节点属于哪个订阅链接 例如`p1 | 香港🇭🇰
+
   p2:
-    type: http
-    interval: 86400
+    <<: *Providers
     url: https://al121.cc/#/register?code=R7vdKxbE
     path: ./proxy_provider/p2.yaml
     override:
@@ -192,6 +194,7 @@ proxy-groups:
 rule-anchor:
   DomainYaml: &DomainYaml { behavior: domain, interval: 86400, proxy: 手动选择, type: http }
   ClassicalYaml: &ClassicalYaml { behavior: classical, interval: 86400, proxy: 手动选择, type: http }
+# 官方文档: https://wiki.metacubex.one/config/rule-providers/
 rule-providers:
   # 这里是blackmatrix7大佬的一些规则常用的都在这里 有需要的佬友在这里添加就好了
   Apple: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml}
@@ -216,6 +219,7 @@ rule-providers:
   DNSNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DNS/DNS_No_Resolve.yaml }
   ChinaMaxNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml }
 
+# 官方文档: https://wiki.metacubex.one/config/rules/
 rules:
   # 额外添加的规则，佬友也可以自己添加
   # DOMAIN-SUFFIX: 用来匹配域名; DIRECT: 这是直连，不走代理的配置
