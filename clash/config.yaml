@@ -137,7 +137,7 @@ external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-p
 SelectALL: &SelectALL { type: url-test, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], interval: 300, tolerance: 50, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 700, include-all: true }
 SelectHK: &SelectHK { type: select, proxies: [ 自动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], include-all: true }
 SelectTW: &SelectTW { type: select, proxies: [ 台湾, 手动选择, 香港, 澳门, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
-SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ] }
+SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ], hidden: true }
 SelectProxy: &SelectProxy { type: select, proxies: [ 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
 # hidden: true 是为了隐藏地区分组，有需要显示出来的佬友可以删除
 UrlTest: &UrlTest { type: url-test, interval: 300, tolerance: 50, url: 'https://www.gstatic.com/generate_204', disable-udp: false, timeout: 700, hidden: true, include-all: true }
