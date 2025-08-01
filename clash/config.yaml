@@ -66,6 +66,11 @@ dns:
     - tls://223.5.5.5
     - tls://119.29.29.29
   nameserver:
+    - https://1.1.1.1/dns-query
+    - https://dns.google.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  direct-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 
