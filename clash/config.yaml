@@ -35,7 +35,6 @@ keep-alive-interval: 15
 keep-alive-idle: 15
 disable-keep-alive: true
 
-
 # dns配置
 dns:
   enable: true
@@ -74,7 +73,6 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 
-
 # GEO配置
 geodata-mode: true
 geo-auto-update: true
@@ -87,11 +85,10 @@ geox-url:
   asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
 
 # 时间同步
-
 ntp:
   enable: true
   write-to-system: false
-  server: time.apple.com
+  server: ntp1.aliyun.com
   port: 123
   interval: 30
 
@@ -220,7 +217,6 @@ rule-providers:
   Claude: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml }
   Github: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml }
   LanNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml }
-  DNSNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/DNS/DNS_No_Resolve.yaml }
   ChinaMaxNoResolve: { <<: *ClassicalYaml, url: https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml }
 
 # 官方配置文档: https://wiki.metacubex.one/config/rules/
@@ -230,6 +226,7 @@ rules:
   # 介绍一下如何配置
   # 匹配规则,分组,规则 例如下面这个
   # [域名匹配],[linux.do],[直连]
+  - DOMAIN-SUFFIX,grok.com,香港
   - DOMAIN-SUFFIX,linux.do,直连
   - DOMAIN-SUFFIX,portal101.cn,直连
   - DOMAIN-SUFFIX,javasec.org,直连
@@ -238,9 +235,8 @@ rules:
   - PROCESS-NAME,prl_disp_service,漏网之鱼
   - PROCESS-NAME,com.parallels.naptd,漏网之鱼
   # 分流规则，这里的分流规则是根据blackmatrix7大佬的配置
-  # [规则匹配],[局域网],[直连],[不解析]  这里不使用GEOIP,private，是因为我测试下来感觉使用GEO会让clash内存占用过大所以就没使用了
+  # [规则匹配],[局域网],[直连],[不解析]  这里不使用GEOIP,private，是因为我测试下来感觉使用GEO会让clash内存变高所以就没使用了
   - RULE-SET,LanNoResolve,直连,no-resolve
-  - RULE-SET,DNSNoResolve,直连,no-resolve
   - RULE-SET,ChinaMaxNoResolve,直连,no-resolve
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
