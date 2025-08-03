@@ -1,5 +1,5 @@
 # 订阅锚点，排除了一些节点，例如 包含剩余，官网，到期，也可以在exclude-filter添加你需要排除的节点
-Providers: &Providers { exclude-filter: "套餐到期|重置|剩余|国内|永久|基础|教学|资源", type: http, interval: 86400, health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 300 } }
+Providers: &Providers { exclude-filter: "套餐到期|重置|剩余|国内|永久|基础|教学|资源|导航", type: http, interval: 86400, health-check: { enable: true, url: https://www.gstatic.com/generate_204, interval: 300 } }
 # 官方配置文档: https://wiki.metacubex.one/config/proxy-providers/
 proxy-providers:
   p1:
@@ -45,7 +45,6 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
-    - "*"
     - "+.lan"
     - "+.local"
     - "+.msftconnecttest.com"
@@ -227,6 +226,7 @@ rules:
   # 匹配规则,分组,规则 例如下面这个
   # [域名匹配],[linux.do],[直连]
   - DOMAIN-SUFFIX,grok.com,香港
+  - DOMAIN-SUFFIX,windows.net,香港
   - DOMAIN-SUFFIX,linux.do,直连
   - DOMAIN-SUFFIX,portal101.cn,直连
   - DOMAIN-SUFFIX,javasec.org,直连
@@ -236,7 +236,6 @@ rules:
   - PROCESS-NAME,com.parallels.naptd,漏网之鱼
   # 分流规则，这里的分流规则是根据blackmatrix7大佬的配置
   # [规则匹配],[局域网],[直连],[不解析]  这里不使用GEOIP,private，是因为我测试下来感觉使用GEO会让clash内存变高所以就没使用了
-  - RULE-SET,LanNoResolve,直连,no-resolve
   - RULE-SET,ChinaMaxNoResolve,直连,no-resolve
   - RULE-SET,Telegram,Telegram
   - RULE-SET,YouTube,YouTube
