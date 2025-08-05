@@ -15,10 +15,10 @@
 
 # MacBook 裸核教程
 ```bash
-# 进入到用户目录的启动项管理
-cd ~/Library/LaunchAgents
-# 创建启动项文件
-touch mihomo.plist
+# 进入系统启动项管理
+cd /Library/LaunchAgents
+# 创建启动项
+touch com.mihomo.plist
 ```
 
 ## 将文件内容写入`mihomo.plist`，需要自己修改路径
@@ -45,14 +45,25 @@ touch mihomo.plist
     <key>StandardOutPath</key>
     <!-- 日志存路径，自己设置 -->
     <string>/tmp/mihomo/clash-meta.log</string>
-    <key>StandardErrorPath</key>
-    <string>/tmp/mihomo/cmihomo/clash-meta.error.log</string>
 </dict>
 </plist>
 ```
+# 配置权限
+```bash
+# 更改为root用户
+sudo chown root:wheel com.mihomo.plist
+# 更改权限
+sudo chmod 755 com.mihomo.plist
+# 进入mihomo目录，将mihomo运行程序所属用户修改为root
+sudo chown root:admin mihomo
+# 设置 SUID 位，允许以 root 权限运行
+sudo chmod u+s mihomo
+```
+
 ## 启动
 ```bash
 launchctl start mihomo
+
 ```
 ## 配置文件
 （config.yaml）会在启动后自动生成
