@@ -135,7 +135,7 @@ external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 代理组锚点，是为了减少重复配置
-SelectALL: &SelectALL { type: url-test, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], nclude-all: true }
+SelectALL: &SelectALL { type: url-test, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], include-all: true }
 SelectHK: &SelectHK { type: select, proxies: [ 自动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
 SelectTW: &SelectTW { type: select, proxies: [ 台湾, 手动选择, 香港, 澳门, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ] }
 SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ] }
