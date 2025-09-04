@@ -1,0 +1,6 @@
+# NAME: Global
+# AUTHOR: Wans
+# REPO: https://github.com/wanswu/my-backup
+payload:
+  - DOMAIN-SUFFIX,grok.com
+  - DOMAIN-SUFFIX,windows.net
