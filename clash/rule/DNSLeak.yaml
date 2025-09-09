@@ -1,3 +1,7 @@
+# NAME: DNSLeak
+# AUTHOR: Wans
+# REPO: https://github.com/wanswu/my-backup
+# DATE: 2025/09/09
 payload:
   - IP-CIDR,142.251.215.0/24,no-resolves
   - DOMAIN-SUFFIX,checkip.dyndns.org
