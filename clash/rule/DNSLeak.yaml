@@ -7,7 +7,6 @@ payload:
   - DOMAIN-SUFFIX,checkip.dyndns.org
   - DOMAIN-SUFFIX,checkip.dyndns.com
   - DOMAIN-SUFFIX,vultr.com
-  - DOMAIN-SUFFIX,ipip.net
   - DOMAIN-SUFFIX,test-ipv6.com
   - DOMAIN-SUFFIX,ipw.cn
   - DOMAIN-SUFFIX,ipv6-test.com
