@@ -12,7 +12,6 @@ payload:
   - DOMAIN-SUFFIX,ipv6-test.com
   - DOMAIN-SUFFIX,ipv4-test.com
   - DOMAIN-SUFFIX,ip.sb
-  - DOMAIN-SUFFIX,cloudflare.com
   - DOMAIN-SUFFIX,fast.com
   - DOMAIN-SUFFIX,speedcheck.org
   - DOMAIN-SUFFIX,speedtest.net
