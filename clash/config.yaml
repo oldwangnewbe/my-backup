@@ -7,7 +7,7 @@ proxy-providers:
     url: https://al121.cc/#/register?code=R7vdKxbE
     path: ./proxy_provider/p1.yaml
     override:
-      additional-prefix: 'p1 | '  # 订阅节点前缀，方便区分该节点属于哪个订阅链接 例如`p1 | 香港🇭🇰
+      additional-prefix: 'p1 | '  # 订阅节点前缀，方便区分该节点属于哪个订阅链接 例如`p1 | 🇭🇰香港🇭🇰
 
   p2:
     <<: *Providers
@@ -138,11 +138,11 @@ external-ui-name: zashboard
 external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
 # 代理组锚点，是为了减少重复配置
-SelectALL: &SelectALL { type: url-test, proxies: [ 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], hidden: true, include-all: true }
-SelectHK: &SelectHK { type: select, proxies: [ 自动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], disable-udp: false }
-SelectTW: &SelectTW { type: select, proxies: [ 台湾, 手动选择, 香港, 澳门, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], disable-udp: false }
-SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, REJECT, 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, REJECT ], disable-udp: false }
-SelectProxy: &SelectProxy { type: select, proxies: [ 手动选择, 香港, 澳门, 台湾, 日本, 韩国, 美国, 英国, 德国, 法国, 印度, 新加坡, 印尼, 越南, 泰国, 澳洲, 巴西, 其他, DIRECT, REJECT ], disable-udp: false }
+SelectALL: &SelectALL { type: url-test, proxies: [ 🇭🇰香港, 🇲🇴澳门, 🇹🇼台湾, 🇯🇵日本, 🇰🇷韩国, 🇺🇸美国, 🇬🇧英国, 🇩🇪德国, 🇫🇷法国, 🇮🇳印度, 🇸🇬新加坡, 🇮🇩印尼, 🇻🇳越南, 🇹🇭泰国, 🇦🇺澳洲, 🇧🇷巴西, 其他, DIRECT, REJECT ], hidden: true, include-all: true }
+SelectHK: &SelectHK { type: select, proxies: [ 自动选择, 🇭🇰香港, 🇲🇴澳门, 🇹🇼台湾, 🇯🇵日本, 🇰🇷韩国, 🇺🇸美国, 🇬🇧英国, 🇩🇪德国, 🇫🇷法国, 🇮🇳印度, 🇸🇬新加坡, 🇮🇩印尼, 🇻🇳越南, 🇹🇭泰国, 🇦🇺澳洲, 🇧🇷巴西, 其他, DIRECT, REJECT ], disable-udp: false }
+SelectTW: &SelectTW { type: select, proxies: [ 🇹🇼台湾, 手动选择, 🇭🇰香港, 🇲🇴澳门, 🇯🇵日本, 🇰🇷韩国, 🇺🇸美国, 🇬🇧英国, 🇩🇪德国, 🇫🇷法国, 🇮🇳印度, 🇸🇬新加坡, 🇮🇩印尼, 🇻🇳越南, 🇹🇭泰国, 🇦🇺澳洲, 🇧🇷巴西, 其他, DIRECT, REJECT ], disable-udp: false }
+SelectDirect: &SelectDirect { type: select, proxies: [ DIRECT, REJECT, 手动选择, 🇭🇰香港, 🇲🇴澳门, 🇹🇼台湾, 🇯🇵日本, 🇰🇷韩国, 🇺🇸美国, 🇬🇧英国, 🇩🇪德国, 🇫🇷法国, 🇮🇳印度, 🇸🇬新加坡, 🇮🇩印尼, 🇻🇳越南, 🇹🇭泰国, 🇦🇺澳洲, 🇧🇷巴西, 其他, REJECT ], disable-udp: false }
+SelectProxy: &SelectProxy { type: select, proxies: [ 手动选择, 🇭🇰香港, 🇲🇴澳门, 🇹🇼台湾, 🇯🇵日本, 🇰🇷韩国, 🇺🇸美国, 🇬🇧英国, 🇩🇪德国, 🇫🇷法国, 🇮🇳印度, 🇸🇬新加坡, 🇮🇩印尼, 🇻🇳越南, 🇹🇭泰国, 🇦🇺澳洲, 🇧🇷巴西, 其他, DIRECT, REJECT ], disable-udp: false }
 # hidden: true 是为了隐藏地区分组，有需要显示出来的佬友可以删除
 UrlTest: &UrlTest { type: url-test, interval: 300, tolerance: 50, url: 'https://www.gstatic.com/generate_204', hidden: true, include-all: true, disable-udp: false }
 Fallback: &Fallback { type: fallback, interval: 300, tolerance: 50, url: 'https://www.gstatic.com/generate_204', hidden: true, include-all: true, disable-udp: false }
@@ -150,47 +150,47 @@ Fallback: &Fallback { type: fallback, interval: 300, tolerance: 50, url: 'https:
 # 代理组
 proxy-groups:
   - { name: 手动选择, <<: *SelectHK, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png, include-all: true }
-  - { name: 自动选择, <<: *SelectALL, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png }
+  - { name: 自动选择, <<: *SelectALL, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png, include-all: true }
   - { name: GLOBAL, <<: *SelectDirect, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png, include-all: true }
-  - { name: Apple, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png }
-  - { name: BiliBili, <<: *SelectDirect, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_4.png }
-  - { name: Claude, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@main/IconSet/AI/Claude.png }
-  - { name: Disney, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney.png }
-  - { name: Emby, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png }
-  - { name: Gemini, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/guaishouxiaoqi/icons@master/Color/Gemini.png }
-  - { name: Github, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png }
-  - { name: Google, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png }
-  - { name: Microsoft, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png }
-  - { name: Netflix, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png }
-  - { name: OpenAI, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png }
-  - { name: OneDrive, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png }
-  - { name: Steam, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png }
-  - { name: Spotify, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png }
-  - { name: TikTok, <<: *SelectTW, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png }
-  - { name: Telegram, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png }
-  - { name: Twitter, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png }
-  - { name: YouTube, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png}
-  - { name: 漏网之鱼, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png }
+  - { name: Apple, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png, include-all: true }
+  - { name: BiliBili, <<: *SelectDirect, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili_4.png, include-all: true }
+  - { name: Claude, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@main/IconSet/AI/Claude.png, include-all: true }
+  - { name: Disney, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Disney.png, include-all: true }
+  - { name: Emby, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png, include-all: true }
+  - { name: Gemini, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/guaishouxiaoqi/icons@master/Color/Gemini.png, include-all: true }
+  - { name: Github, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png, include-all: true }
+  - { name: Google, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png, include-all: true }
+  - { name: Microsoft, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png, include-all: true }
+  - { name: Netflix, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png, include-all: true }
+  - { name: OpenAI, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png, include-all: true }
+  - { name: OneDrive, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png, include-all: true }
+  - { name: Steam, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Steam.png, include-all: true }
+  - { name: Spotify, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png, include-all: true }
+  - { name: TikTok, <<: *SelectTW, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok.png, include-all: true }
+  - { name: Telegram, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png, include-all: true }
+  - { name: Twitter, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png, include-all: true }
+  - { name: YouTube, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png, include-all: true}
+  - { name: 漏网之鱼, <<: *SelectProxy, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png, include-all: true }
   - { name: 直连, <<: *SelectDirect, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Direct.png, hidden: true }
   # 这里只匹配了一些常用地区的分组
-  - { name: 香港, <<: *UrlTest, filter: 🇭🇰|香港|港|HK|hongkong|hong kong, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png }
-  - { name: 澳门, <<: *UrlTest, filter: 🇲🇴|澳门|门|MO|macao, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Macao.png }
-  - { name: 台湾, <<: *UrlTest, filter: 🇹🇼|台湾|台|TW|taiwan|taipei, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png }
-  - { name: 日本, <<: *UrlTest, filter: 🇯🇵|日本|JP|japan|tokyo|osaka, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png }
-  - { name: 韩国, <<: *UrlTest, filter: 🇰🇷|韩国|韩|KR|korea|seoul, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png }
-  - { name: 美国, <<: *UrlTest, filter: 🇺🇸|美国|美|US|united states|america|los angeles|san jose|silicon valley, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png }
-  - { name: 英国, <<: *UrlTest, filter: 🇬🇧|英国|英|UK|united kingdom|london, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png }
-  - { name: 德国, <<: *UrlTest, filter: 🇩🇪|德国|德|DE|germany|frankfurt, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png }
-  - { name: 法国, <<: *UrlTest, filter: 🇫🇷|法国|法|FR|france|paris, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
-  - { name: 印度, <<: *UrlTest, filter: 🇮🇳|印度|IN|india|mumbai, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
-  - { name: 新加坡, <<: *UrlTest, filter: 🇸🇬|新加坡|新|SG|singapore, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png }
-  - { name: 印尼, <<: *UrlTest, filter: 🇮🇩|印尼|印度尼西亚|ID|indonesia|jakarta, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@master/IconSet/Country/Indonesia.png }
-  - { name: 越南, <<: *UrlTest, filter: 🇻🇳|越南|VN|vietnam, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@master/IconSet/Country/Vietnam.png }
-  - { name: 泰国, <<: *UrlTest, filter: 🇹🇭|泰国|TH|thailand|bangkok, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png }
-  - { name: 澳洲, <<: *UrlTest, filter: 🇦🇺|澳大利亚|AU|australia|sydney, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Australia.png }
-  - { name: 巴西, <<: *UrlTest, filter: 🇧🇷|巴西|brazil, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Brazil.png }
+  - { name: 🇭🇰香港, <<: *UrlTest, filter: 🇭🇰|香港|港|HK|hongkong|hong kong, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hong_Kong.png }
+  - { name: 🇲🇴澳门, <<: *UrlTest, filter: 🇲🇴|澳门|门|MO|macao, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Macao.png }
+  - { name: 🇹🇼台湾, <<: *UrlTest, filter: 🇹🇼|台湾|台|TW|taiwan|taipei, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Taiwan.png }
+  - { name: 🇯🇵日本, <<: *UrlTest, filter: 🇯🇵|日本|JP|japan|tokyo|osaka, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Japan.png }
+  - { name: 🇰🇷韩国, <<: *UrlTest, filter: 🇰🇷|韩国|韩|KR|korea|seoul, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Korea.png }
+  - { name: 🇺🇸美国, <<: *UrlTest, filter: 🇺🇸|美国|美|US|united states|america|los angeles|san jose|silicon valley, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_States.png }
+  - { name: 🇬🇧英国, <<: *UrlTest, filter: 🇬🇧|英国|英|UK|united kingdom|london, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/United_Kingdom.png }
+  - { name: 🇩🇪德国, <<: *UrlTest, filter: 🇩🇪|德国|德|DE|germany|frankfurt, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Germany.png }
+  - { name: 🇫🇷法国, <<: *UrlTest, filter: 🇫🇷|法国|法|FR|france|paris, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
+  - { name: 🇮🇳印度, <<: *UrlTest, filter: 🇮🇳|印度|IN|india|mumbai, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/France.png }
+  - { name: 🇸🇬新加坡, <<: *UrlTest, filter: 🇸🇬|新加坡|新|SG|singapore, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Singapore.png }
+  - { name: 🇮🇩印尼, <<: *UrlTest, filter: 🇮🇩|印尼|印度尼西亚|ID|indonesia|jakarta, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@master/IconSet/Country/Indonesia.png }
+  - { name: 🇻🇳越南, <<: *UrlTest, filter: 🇻🇳|越南|VN|vietnam, icon: https://testingcf.jsdelivr.net/gh/wanswu/my-backup@master/IconSet/Country/Vietnam.png }
+  - { name: 🇹🇭泰国, <<: *UrlTest, filter: 🇹🇭|泰国|TH|thailand|bangkok, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Thailand.png }
+  - { name: 🇦🇺澳洲, <<: *UrlTest, filter: 🇦🇺|澳大利亚|AU|australia|sydney, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Australia.png }
+  - { name: 🇧🇷巴西, <<: *UrlTest, filter: 🇧🇷|巴西|brazil, icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Brazil.png }
   # 除了常用的地区，其他地区都放这里
-  - { name: 其他, <<: *UrlTest, filter: '(?i)^(?!.*(香港|台湾|日本|韩国|新加坡|美国|英国|德国|法国|印度|泰国|越南|印尼|澳大利亚|巴西|港|台|日|韩|新|美|英|德|法|印|泰|越|尼|澳|巴|hk|tw|jp|kr|sg|us|uk|de|fr|in|th|vn|id|au|br)).*', icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png }
+  - { name: 其他, <<: *UrlTest, filter: '(?i)^(?!.*(🇭🇰香港|台湾|日本|韩国|新加坡|美国|英国|德国|法国|印度|泰国|越南|印尼|澳大利亚|巴西|港|台|日|韩|新|美|英|德|法|印|泰|越|尼|澳|巴|hk|tw|jp|kr|sg|us|uk|de|fr|in|th|vn|id|au|br)).*', icon: https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png }
 
 # 规则锚点，是为了减少重复配置
 rule-anchor:
@@ -231,6 +231,8 @@ rules:
   # [域名匹配],[linux.do],[直连]
   - DOMAIN-SUFFIX,grok.com,手动选择
   - DOMAIN-SUFFIX,windows.net,手动选择
+  - DOMAIN-SUFFIX,cn2gias.uk,Emby
+  - DOMAIN-SUFFIX,nijigem.by,Emby
   - DOMAIN-SUFFIX,linux.do,直连
   - DOMAIN-SUFFIX,portal101.cn,直连
   - DOMAIN-SUFFIX,javasec.org,直连
